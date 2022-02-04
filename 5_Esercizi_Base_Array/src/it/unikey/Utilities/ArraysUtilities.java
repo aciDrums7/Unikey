@@ -22,6 +22,7 @@ public abstract class ArraysUtilities {
         return sum/counter;
     }
 
+    
     public static double[] copy(double[] doubleArray, int newLength) {
         double[] newArray = new double[newLength];
         for(int i = 0; i < doubleArray.length;i++) {
@@ -37,6 +38,7 @@ public abstract class ArraysUtilities {
         }
         return newArray;
     }
+    
 
     public static double[] toDoubleArray(String[] stringArray) {
         double[] doubleArray = new double[0];
@@ -93,9 +95,9 @@ public abstract class ArraysUtilities {
         }
     }
 
-    public static int[] permuteForward1(int[] array) {
+    public static <T> T[] permuteForward1(T[] array) {
         int newIndex = 0;
-        int[] newArray = new int[array.length];
+        T[] newArray = array.clone();
         for(int i = 0; i < array.length; i++) {
             newIndex++;
             if(newIndex != array.length)
@@ -106,8 +108,8 @@ public abstract class ArraysUtilities {
         return newArray;
     }
 
-    public static int[] switchHalfs(int[] array) {
-        int[] switchedArray = copy(array, array.length);
+    public static <T> T[] switchHalfs(T[] array) {
+        T[] switchedArray = array.clone();
         if(array.length % 2 == 0) {
             for(int i = 0; i< array.length/2; i++) {
                 switchedArray[i] = array[(array.length/2)+i];
